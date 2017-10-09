@@ -1,5 +1,5 @@
-import * as API from '../utils/NetworkAPI'
-import * as Types from './actionTypes.js';
+import * as API from '../utils/api'
+import * as Types from './index.js';
 
 export const fetchAllPosts = () => {
   return (dispatch) => {
