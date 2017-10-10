@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createPost } from '../../actions/index'
 import { getid } from '../../utils/helpers'
 
-class NewPost extends Component {
+class NewPostPage extends Component {
 
   addNewPost = (e) => {
     e.preventDefault()
@@ -62,4 +62,4 @@ function mapStateToProps({ posts, categories }) {
   }
 }
 
-export default connect(mapStateToProps, { createPost })(NewPost)
+export default connect(mapStateToProps, { createPost })(NewPostPage)
