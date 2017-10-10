@@ -3,7 +3,7 @@ export function formatTimestamp(timestamp) {
   return d.toLocaleString()
 }
 
-export function guid() {
+export function getid() {
   function random() {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)

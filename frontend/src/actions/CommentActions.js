@@ -16,3 +16,27 @@ export const createComment = (comment, parentId, callback) => {
     }).then(() => callback())
   }
 }
+
+export const updateComment = (commentId, parentId, timestamp, body, callback) => {
+  return (dispatch) => {
+    API.updateComment(commentId, timestamp, body)
+      .then(updatedComment => {
+        dispatch({ type: Types.UPDATE_COMMENT, updatedComment, commentId, parentId })
+      }).then(() => callback())
+  }
+}
+
+export const deleteComment = (commentId, callback) => {
+  return (dispatch) => {
+    API.deleteComment(commentId).then(() => callback())
+    dispatch({ type: Types.DELETE_COMMENT, commentId })
+  }
+}
+
+export const voteComment = (commentId, parentId, option) => {
+  return (dispatch) => {
+    API.voteComment(commentId, option).then(updatedComment => {
+      dispatch({ type: Types.VOTE_COMMENT, updatedComment, commentId, parentId })
+    })
+  }
+}
