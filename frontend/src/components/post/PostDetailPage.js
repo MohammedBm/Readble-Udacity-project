@@ -1,11 +1,11 @@
 import _ from 'lodash'
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { formatTimestamp } from '../../utils/Utils'
+import { formatTimestamp } from '../../utils/helpers'
 import { Link } from 'react-router-dom'
-import { fetchCommentForPost } from '../../actions/commentActions'
-import { fetchAllPosts, votePost, deletePost } from '../../actions/postActions'
-import PostComment from '../comment/PostComment'
+import { fetchCommentForPost } from '../../actions/CommentActions'
+import { fetchAllPosts, votePost, deletePost } from '../../actions/PostActions'
+import PostCommentPage from '../comment/PostCommentPage'
 
 class PostDetailPage extends Component {
 
@@ -36,14 +36,14 @@ class PostDetailPage extends Component {
               </Link>
               <div className="post-body"><p>{post.body}</p></div>
               <div className="post-likes">
-                <Button onClick={() => {
+                <button onClick={() => {
                   votePost(post.id, "upVote")
                   fetchAllPosts()
-                }}>Like</Button>
-                <Button onClick={() => {
+                }}>Like</button>
+                <button onClick={() => {
                   votePost(post.id, "downVote")
                   fetchAllPosts()
-                }}>Dislike</Button>
+                }}>Dislike</button>
               </div>
               <div className="post-likes-comments">
                 {post.voteScore} votes {comments && comments ? comments.length : 0} comments
@@ -67,7 +67,7 @@ class PostDetailPage extends Component {
               <button onClick={(e) => this.onPostDelete(e)}>Delete</button>
             </div>
 
-        {post && comments && <PostComment category={post.category} comments={comments} history={this.props.history}/>}
+        {post && comments && <PostCommentPage category={post.category} comments={comments} history={this.props.history}/>}
       </div>
     )
   }

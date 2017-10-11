@@ -23,13 +23,13 @@ class PostShowPage extends Component {
               <div className="post-body"><p>{post.body}</p></div>
 
               <div className="post-likes">
-                <button width="28" height="28" onClick={() => {
+                <button onClick={() => {
                   votePost(post.id, "upVote")
                   fetchAllPosts()
                 }} >
                   Like
                 </button>
-                <button  width="28" height="28" onClick={() => {
+                <button onClick={() => {
                   votePost(post.id, "downVote")
                   fetchAllPosts()
                 }}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { createPost } from '../../actions/index'
+import { createPost } from '../../actions/PostActions'
 import { getid } from '../../utils/helpers'
 
 class NewPostPage extends Component {
