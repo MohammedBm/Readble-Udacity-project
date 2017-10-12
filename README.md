@@ -12,7 +12,8 @@ To get started
     - `node server`
     
 * In another terminal window, use Create React App to scaffold out the front-end
-    - `create-react-app frontend`
     - `cd frontend`
+    - `npm install`
     - `npm start`
+
 
