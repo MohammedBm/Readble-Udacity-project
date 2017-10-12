@@ -14,36 +14,37 @@ class PostShowPage extends Component {
 
     return (
       <div>
-        {post && (
-          <div className="post">
-            <div className="post-description">
-              <Link to={`/${post.category}/${post.id}`}>
-                <div className="post-title"><h3>{post.title}</h3></div>
-              </Link>
-              <div className="post-body"><p>{post.body}</p></div>
 
-              <div className="post-likes">
-                <button onClick={() => {
+        {post && (
+          <div className="card">
+            <div className="card-body">
+              <Link to={`/${post.category}/${post.id}`}>
+                <div className="card-title"><h3>{post.title}</h3></div>
+              </Link>
+              <div className="card-text"><p>{post.body}</p></div>
+
+              <div>
+                <button className='btn btn-outline-success' onClick={() => {
                   votePost(post.id, "upVote")
                   fetchAllPosts()
                 }} >
                   Like
                 </button>
-                <button onClick={() => {
+                <button className='btn btn-outline-danger' onClick={() => {
                   votePost(post.id, "downVote")
                   fetchAllPosts()
                 }}>
                   Dislike
                 </button>
               </div>
-              <div className="post-likes-comments">
+              <div>
                 {post.voteScore} votes {comments && comments ? comments.length : 0} comments
               </div>
             </div>
             <div>
-              <div className="post-author"><p><b>Category: </b> {post.category}</p></div>
-              <div className="post-author"><p><b>Author: </b> {post.author}</p></div>
-              <div className="post-author"><p><b>Time: </b> {formatTimestamp(post.timestamp)}</p></div>
+              <div><p><b>Category: </b> {post.category}</p></div>
+              <div><p><b>Author: </b> {post.author}</p></div>
+              <div><p><b>Time: </b> {formatTimestamp(post.timestamp)}</p></div>
             </div>
           </div>
         )}

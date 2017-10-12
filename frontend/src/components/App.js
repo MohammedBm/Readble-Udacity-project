@@ -27,32 +27,37 @@ class Index extends Component {
 
     return (
       <div className="App">
-        <div className="nav-header">
-          <Link className="home" to="/">
-            <p>Readble</p>
+        <nav className=" navbar-expand-lg navbar navbar-dark bg-dark justify-content-between">
+          <a className="navbar-brand" href="#">Readble</a>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <Link className="link-to-home navbar-item" to="/">
+              <a className="link-to-home">Home</a>
+            </Link>
+          </div>
+          <Link to="/new">
+            <button className="btn btn-outline-success submit-Post" type="button">New Post</button>
           </Link>
-          <Link className="new-post" to="/new">
-            <p>New Post</p>
-          </Link>
-        </div>
+          </nav>
 
-        <div className="filters">
-          <div className="category-changer">
-            <p>Choose Category</p>
+        <div className='container'>
+        <div>
+          <div className="categorey">
+            <h5>Choose Category</h5>
             {categories && categories.map(category => (
               <Link key={category.name} to={`/${category.path}`}>
-                <button>{category.name}</button>
+                <button className='btn btn-outline-primary'>{category.name}</button>
               </Link>
             ))}
           </div>
 
           <div className="sort-changer">
-            <p>Sort By</p>
-            <button onClick={() => sortPost("timestamp")}>Time</button>
-            <button onClick={() => sortPost("voteScore")}>Vote Score</button>
+            <h5>Sort By</h5>
+            <button className='btn btn-outline-primary' onClick={() => sortPost("timestamp")}>Time</button>
+            <button className='btn btn-outline-primary' onClick={() => sortPost("voteScore")}>Vote Score</button>
           </div>
         </div>
-
+        <h2>Posts</h2>
+      </div>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/new" component={NewPostPage} />

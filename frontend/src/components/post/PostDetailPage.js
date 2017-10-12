@@ -29,44 +29,45 @@ class PostDetailPage extends Component {
     return (
       <div>
         {post && (
-          <div className="post" key={post.id}>
-            <div className="post-description">
+          <div className="card" key={post.id}>
+            <div className='card-body'>
               <Link to={`/${post.category}/${post.id}`}>
-                <div className="post-title"><h3>{post.title}</h3></div>
+                <div><h3>{post.title}</h3></div>
               </Link>
-              <div className="post-body"><p>{post.body}</p></div>
-              <div className="post-likes">
-                <button onClick={() => {
+              <div className="card-text"><p>{post.body}</p></div>
+              <div>
+                <button className='btn btn-outline-success' onClick={() => {
                   votePost(post.id, "upVote")
                   fetchAllPosts()
                 }}>Like</button>
-                <button onClick={() => {
+                <button className='btn btn-outline-danger' onClick={() => {
                   votePost(post.id, "downVote")
                   fetchAllPosts()
                 }}>Dislike</button>
               </div>
-              <div className="post-likes-comments">
+              <div>
                 {post.voteScore} votes {comments && comments ? comments.length : 0} comments
-           </div>
+              </div>
             </div>
             <div>
-              <div className="post-author"><p><b>Category: </b> {post.category}</p></div>
-              <div className="post-author"><p><b>Author: </b> {post.author}</p></div>
-              <div className="post-author"><p><b>Time: </b> {formatTimestamp(post.timestamp)}</p></div>
+              <div><p><b>Category: </b> {post.category}</p></div>
+              <div><p><b>Author: </b> {post.author}</p></div>
+              <div><p><b>Time: </b> {formatTimestamp(post.timestamp)}</p></div>
             </div>
           </div>
         )}
-
-        <div className="button-action">
-              <Link to={`/${post.category}/${post.id}/edit`}>
-                <button>Edit</button>
-              </Link>
-              <Link to={`/${post.category}/${post.id}/comment`}>
-                <button>Add Comment</button>
-              </Link>
-              <button onClick={(e) => this.onPostDelete(e)}>Delete</button>
-            </div>
-
+        <div>
+          <Link to={`/${post.category}/${post.id}/edit`}>
+            <button className='btn btn-outline-primary'>Edit</button>
+          </Link>
+          <Link to={`/${post.category}/${post.id}/comment`}>
+            <button className='btn btn-outline-success'>Add Comment</button>
+          </Link>
+          <button className='btn btn-outline-danger'onClick={(e) => this.onPostDelete(e)}>Delete</button>
+        </div>
+        <h2>
+          Comments
+        </h2>
         {post && comments && <PostCommentPage category={post.category} comments={comments} history={this.props.history}/>}
       </div>
     )

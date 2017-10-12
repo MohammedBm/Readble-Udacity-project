@@ -18,27 +18,31 @@ class PostCommentPage extends Component {
     return (
       <div>
         {this.props.comments.map(comment => (
-          <div className="comment" key={comment.id}>
-            <div>
+          <div className="card" key={comment.id}>
+            <div className='card-header'>
+              By <strong>{comment.author}</strong>
+            </div>
+            <div className='card-body'>
               <p>{comment.body}</p>
-              <div className="comment-author"><p> by <b>{comment.author}</b> at {formatTimestamp(comment.timestamp)}</p></div>
-              <div className="post-likes">
-                <button onClick={() => {
+              <div><p>at {formatTimestamp(comment.timestamp)}</p></div>
+
+              <Link to={`/${this.props.category}/${comment.parentId}/${comment.id}/edit`}>
+                <button className='btn btn-outline-success'>Edit</button>
+              </Link>
+            <button className='btn btn-outline-danger' onClick={() => this.onCommentDelete(comment)}>Delete</button>
+            </div>
+            <div className="card-footer">
+              <div>
+                <button className='btn btn-outline-success' onClick={() => {
                   this.props.voteComment(comment.id, comment.parentId, "upVote")
                 }}>
                   Like
                 </button>
-                <button onClick={() => {
+                {comment.voteScore} votes
+                <button className='btn btn-outline-danger' onClick={() => {
                   this.props.voteComment(comment.id, comment.parentId, "downVote")
                 }}>Dislike</button>
-                {comment.voteScore} votes
                 </div>
-            </div>
-            <div className="button-action">
-              <Link to={`/${this.props.category}/${comment.parentId}/${comment.id}/edit`}>
-                <button>Edit</button>
-              </Link>
-              <button onClick={() => this.onCommentDelete(comment)}>Delete</button>
             </div>
           </div>
         ))}

@@ -27,28 +27,28 @@ class NewPostPage extends Component {
     return (
       <form onSubmit={this.addNewPost}>
         <h2>New Post</h2>
-        <ul className="form-style-1">
-          <li>
+        <ul className="form-style">
+          <li className='form-group'>
             <label>Name <span className="required">*</span></label>
-            <input type="text" name="author" className="field-long" />
+            <input type="text" name="author" className=" form-control" />
           </li>
-          <li>
+          <li className="form-group">
             <label>Title <span className="required">*</span></label>
-            <input type="text" name="title" className="field-long" />
+            <input type="text" name="title" className=" form-control" />
           </li>
-          <li>
+          <li className='form-group'>
             <label>Category </label>
-            <select name="category" className="field-select">
+            <select name="category" className="form-control">
               {this.props.categories && this.props.categories.map((category) => (
                 <option key={category.name} value={category.name}>{category.name}</option>
               ))}
             </select>
           </li>
-          <li>
+          <li className='form-group'>
             <label>Post <span className="required">*</span></label>
-            <textarea name="body" id="field5" className="field-long field-textarea"></textarea>
+            <textarea name="body" id="field5" className="form-control textarea-height"></textarea>
           </li>
-          <button>Submit </button>
+          <button className='btn btn-outline-primary'>Submit </button>
         </ul>
       </form>
     )
