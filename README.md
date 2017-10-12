@@ -15,3 +15,7 @@ To get started
     - `cd frontend`
     - `npm install`
     - `npm start`
+
+
+#### Code Obtained from Other Sources
+* <a href='https://stackoverflow.com/questions/6313126/how-to-remove-a-directory-from-git-repository'>How to center cards in bootstrap 4?</a>
