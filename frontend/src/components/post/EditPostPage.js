@@ -43,7 +43,7 @@ class EditPostPage extends Component {
             </li>
             <button className='btn btn-outline-primary' >Update</button>
             <Link to={`/post/${post.id}`}>
-              <button className='btn btn-outline-primary' >Cancel</button>
+              <button className='btn btn-outline-danger' >Cancel</button>
             </Link>
           </ul>
         </form>

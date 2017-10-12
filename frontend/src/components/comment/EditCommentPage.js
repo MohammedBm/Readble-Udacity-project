@@ -30,14 +30,14 @@ class EditCommentPage extends Component {
       <div>
         <form onSubmit={this.updateComment}>
           <h2>Edit Comment</h2>
-          <ul className="form-style-1">
-            <li>
+          <ul className="form-style">
+            <li className='form-group'>
               <label>Comment <span className="required">*</span></label>
-              <textarea defaultValue={this.props.comment.body} name="body" id="field5" className="field-long field-textarea"></textarea>
+              <textarea defaultValue={this.props.comment.body} name="body" id="field5" className="form-control textarea-height"></textarea>
             </li>
-            <button>Update</button>
+            <button className='btn btn-outline-primary'>Update</button>
             <Link to={`/post/${this.props.comment.parentId}`}>
-              <button>Cancel</button>
+              <button className='btn btn-outline-danger'>Cancel</button>
             </Link>
           </ul>
         </form>
