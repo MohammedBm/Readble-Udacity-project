@@ -17,12 +17,8 @@ class EditCommentPage extends Component {
     const timestamp = Date.now()
     const body = e.target.body.value
 
-    if (body === "") {
-      alert('Comment cannot be empty')
-    } else {
-      this.props.updateComment(commentId, postId, timestamp, body,
-        () => this.props.history.push(`/post/${postId}`))
-    }
+    body === undefined ? alert('Comment cannot be empty') :       this.props.updateComment(commentId, postId, timestamp, body,
+            () => this.props.history.push(`/post/${postId}`))
   }
 
   render() {

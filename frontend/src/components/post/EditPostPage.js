@@ -17,12 +17,12 @@ class EditPostPage extends Component {
     const title = e.target.title.value
     const body = e.target.body.value
 
-    if (body === "" || title === "") {
+     body === "" || title === "" ?
       alert("Both fields are mandatory")
-    } else {
+      :
       this.props.updatePost(postId, title, body,
         () => this.props.history.push('/'))
-    }
+
   }
 
   render() {
