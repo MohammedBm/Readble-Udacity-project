@@ -40,3 +40,19 @@ export const voteComment = (commentId, parentId, option) => {
     })
   }
 }
+
+export const votePost = (postId, option) => {
+  return (dispatch) => {
+    API.votePost(postId, option).then(post => {
+      dispatch({ type: Types.VOTE_POST, postId, option })
+    })
+  }
+}
+
+export const fetchAllPosts = () => {
+  return (dispatch) => {
+    API.fetchPosts().then(posts => {
+      dispatch({ type: Types.FETCH_POSTS, posts })
+    })
+  }
+}
