@@ -1,4 +1,4 @@
-import * as Types from '../actions/index.js'
+import * as Types from '../actions/type'
 
 function categories(state=[], action) {
   switch(action.type) {

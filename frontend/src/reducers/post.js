@@ -3,7 +3,7 @@
 // Depend solely on the arguments passed into them
 // Do not produce side effects
 import sortBy from 'sort-by'
-import * as Types from '../actions/index'
+import * as Types from '../actions/type'
 
 function posts(state=[], action) {
   const { posts, post, postId, updatedPost, sortKey } = action

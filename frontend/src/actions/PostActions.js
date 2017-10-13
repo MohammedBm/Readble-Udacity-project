@@ -1,5 +1,5 @@
 import * as API from '../utils/api'
-import * as Types from './index.js';
+import * as Types from './type';
 
 export const fetchAllPosts = () => {
   return (dispatch) => {

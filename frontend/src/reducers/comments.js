@@ -1,4 +1,4 @@
-import * as Types from '../actions/index'
+import * as Types from '../actions/type'
 
 function comments(state={}, action) {
   const { comments, commentId, parentId, updatedComment} = action
