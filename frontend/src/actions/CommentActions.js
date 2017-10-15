@@ -56,3 +56,10 @@ export const fetchAllPosts = () => {
     })
   }
 }
+
+export const deletePost = (postId, callback) => {
+  return dispatch => {
+    API.deletePost(postId).then(() => callback())
+    dispatch({ type: Types.DELETE_POST, postId })
+  }
+}

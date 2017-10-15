@@ -9,6 +9,11 @@ class PostShowPage extends Component {
     this.props.fetchCommentForPost(this.props.post.id)
   }
 
+  onPostDelete = () => {
+    const id = this.props.post.id
+    this.props.deletePost(id, ()=>{})
+  }
+
   render() {
     const { post, comments, votePost, fetchAllPosts } = this.props
 
@@ -46,6 +51,17 @@ class PostShowPage extends Component {
               <div><p><b>Author: </b> {post.author}</p></div>
               <div><p><b>Time: </b> {formatTimestamp(post.timestamp)}</p></div>
             </div>
+            <div className="card-footer">
+              <Link to={`/${post.category}/${post.id}/edit`}>
+                <button className='btn btn-outline-primary'>Edit</button>
+              </Link>
+              <Link to={`/${post.category}/${post.id}/comment`}>
+                <button className='btn btn-outline-success'>Add Comment</button>
+              </Link>
+              <button className='btn btn-outline-danger'onClick={(e) => this.onPostDelete(e)}>Delete</button>
+
+            </div>
+
           </div>
         )}
       </div>
